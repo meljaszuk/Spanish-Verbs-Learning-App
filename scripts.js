@@ -1,6 +1,7 @@
-
 'use strict'
-const NUMBER_OF_QUESTIONS = 5;
+const NUMBER_OF_QUESTIONS = 1000;  //has to agree with sorce.txt file
+const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
+const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
 let numberOfRow;
 let selectedQuestion ='';
 let answers = [];
@@ -9,11 +10,11 @@ let wiersze;
 // Pobranie zawartości pliku tekstowego */
 
 function getNumberOfRowOfQuestion() {
-    let multiplier = 1+ Math.floor(Math.random() * NUMBER_OF_QUESTIONS);
-    numberOfRow = 1+ 4 * multiplier;
+    let multiplier = 1+ Math.floor(Math.random() * (NUMBER_OF_QUESTIONS-1));
+    numberOfRow = 1+ (ANSWERS_PER_QUESTION + 1) * multiplier;
 
-    console.log('mulitplier', multiplier)
-    console.log('number of row of question', numberOfRow)
+    /* console.log('mulitplier', multiplier)
+    console.log('number of row of question', numberOfRow) */
 
 }
 
@@ -22,7 +23,7 @@ function getNumberOfRowOfQuestion() {
 function displayQuestion() {
 
     getNumberOfRowOfQuestion();
-console.log('number of row of question', numberOfRow)
+console.log('row with question',numberOfRow)
     
 
 let url = 'source.txt';
@@ -40,14 +41,14 @@ let url = 'source.txt';
         wiersze = data.split('\n');
         selectedQuestion = wiersze[numberOfRow-1];
 
-console.log('wiersze',wiersze)
+/* console.log('wiersze',wiersze) */
 
 
 
 
-        console.log(wiersze[numberOfRow-1], 'quest')
+        /* console.log(wiersze[numberOfRow-1], 'quest') */
 
-        answers = [wiersze[numberOfRow], wiersze[numberOfRow+1], wiersze[numberOfRow+2]];
+        answers = [wiersze[numberOfRow], wiersze[numberOfRow+1], wiersze[numberOfRow+2], wiersze[numberOfRow+3]];
         document.querySelector('.app__question').textContent = selectedQuestion;
 
         orderAnswersRandomly();
@@ -65,17 +66,17 @@ console.log('wiersze',wiersze)
 
 
 function orderAnswersRandomly() {
-    console.log(answers)
+    /* console.log(answers) */
      // Załaduj drugi wiersz do .app__answer
 
-let freeSpots = [1, 2, 3];
 
-for (let i = 0;  i<=answers.length+1; i++) {
-    console.log('i', i)
-    let assignedAnswerIndex = Math.floor(Math.random() * answers.length);
+
+for (let i = 0;  i<FREE_SPOTS.length; i++) {
+    /* console.log('i', i) */
+    let assignedAnswerIndex = Math.floor(Math.random() * (answers.length));
 /*     let assignedSpotIndex = Math.floor(Math.random() * answers.length); */
 
-    document.querySelector(`.app__answer--` + freeSpots[i]).textContent = answers[assignedAnswerIndex];
+    document.querySelector(`.app__answer--` + FREE_SPOTS[i]).textContent = answers[assignedAnswerIndex];
 
     answers.splice(assignedAnswerIndex, 1);
     /* freeSpots.splice(assignedSpotIndex,1); */
@@ -95,3 +96,12 @@ let button = document.getElementById("generateQuestionButton");
 
 // Dodanie obsługi zdarzenia kliknięcia do przycisku
 button.addEventListener("click", displayQuestion);
+
+//BELOW FUNCTION IS USED FOR TESTING ONLY
+
+function callBasicFunctionForTesting() {
+    for (let i=0; i<=100;i++) {
+        displayQuestion()
+    } 
+}
+callBasicFunctionForTesting();
