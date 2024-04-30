@@ -17,6 +17,8 @@ function getNumberOfRowOfQuestion() {
 
 }
 
+
+
 function displayQuestion() {
 
     getNumberOfRowOfQuestion();
@@ -38,7 +40,7 @@ let url = 'source.txt';
         wiersze = data.split('\n');
         selectedQuestion = wiersze[numberOfRow-1];
 
-console.log(wiersze)
+console.log('wiersze',wiersze)
 
 
 
@@ -46,13 +48,11 @@ console.log(wiersze)
         console.log(wiersze[numberOfRow-1], 'quest')
 
         answers = [wiersze[numberOfRow], wiersze[numberOfRow+1], wiersze[numberOfRow+2]];
-        console.log(answers);
         document.querySelector('.app__question').textContent = selectedQuestion;
 
- // Załaduj drugi wiersz do .app__answer
- document.querySelector('.app__answer--1').textContent = answers[0];
- document.querySelector('.app__answer--2').textContent = answers[1];
- document.querySelector('.app__answer--3').textContent = answers[2];
+        orderAnswersRandomly();
+
+
        
     })
     .catch(error => {
@@ -62,6 +62,33 @@ console.log(wiersze)
  // Załaduj pierwszy wiersz do .app__question
  
 }
+
+
+function orderAnswersRandomly() {
+    console.log(answers)
+     // Załaduj drugi wiersz do .app__answer
+
+let freeSpots = [1, 2, 3];
+
+for (let i = 0;  i<=answers.length+1; i++) {
+    console.log('i', i)
+    let assignedAnswerIndex = Math.floor(Math.random() * answers.length);
+/*     let assignedSpotIndex = Math.floor(Math.random() * answers.length); */
+
+    document.querySelector(`.app__answer--` + freeSpots[i]).textContent = answers[assignedAnswerIndex];
+
+    answers.splice(assignedAnswerIndex, 1);
+    /* freeSpots.splice(assignedSpotIndex,1); */
+
+
+}
+
+
+
+
+}
+
+
 
 // Pobranie referencji do przycisku
 let button = document.getElementById("generateQuestionButton");
