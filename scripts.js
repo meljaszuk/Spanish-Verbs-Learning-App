@@ -111,21 +111,19 @@ callBasicFunctionForTesting(); */
 
 
 let appAnswers = document.querySelectorAll(".app__answer");
-console.log(appAnswers[0])
-console.log(appAnswers)
 let selectedAnswer = document.querySelectorAll(".app__answer--1");
-console.log(selectedAnswer)
+
 
 
 for (let appAnswer of appAnswers) {
     // Dodaj nasłuchiwanie zdarzenia kliknięcia
     appAnswer.addEventListener("click", function() {
         // Dodaj klasę do wybranego elementu    
-        console.log(appAnswer.textContent, correctAnswer)
+       
         if(appAnswer.textContent === correctAnswer) {
-            console.log('correct answer')
+            console.log('[CORRECT]',appAnswer.textContent)
         } else {
-            console.log('wrong')
+            console.log('[WRONG]',appAnswer.textContent)
         }
         
 
