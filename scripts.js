@@ -2,6 +2,10 @@
 const NUMBER_OF_QUESTIONS = 1000;  //has to agree with sorce.txt file
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
+const scopes = [{scopeName: 'Scope-1', sourceFile: 'source-1.txt', numberOfQuestions: 1000},
+                {scopeName: 'Scope-2', sourceFile: 'source-2.txt', numberOfQuestions: 1000},
+                {scopeName: 'Scope-3', sourceFile: 'source-3.txt', numberOfQuestions: 1000},
+                {scopeName: 'Scope-4', sourceFile: 'source-4.txt', numberOfQuestions: 1000}];
 let numberOfRow;
 let selectedQuestion ='';
 let answers = [];
@@ -121,9 +125,9 @@ for (let appAnswer of appAnswers) {
         // Dodaj klasę do wybranego elementu    
        
         if(appAnswer.textContent === correctAnswer) {
-            console.log('[CORRECT]',appAnswer.textContent)
+            console.log('[SHOULD BE CORRECT]',appAnswer.textContent)
         } else {
-            console.log('[WRONG]',appAnswer.textContent)
+            console.log('[SHOULD BE WRONG]',appAnswer.textContent)
         }
         
 
