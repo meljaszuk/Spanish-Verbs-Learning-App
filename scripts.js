@@ -5,6 +5,7 @@ const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above 
 let numberOfRow;
 let selectedQuestion ='';
 let answers = [];
+let correctAnswer;
 let wiersze;
 
 // Pobranie zawartości pliku tekstowego */
@@ -49,6 +50,7 @@ let url = 'source.txt';
         /* console.log(wiersze[numberOfRow-1], 'quest') */
 
         answers = [wiersze[numberOfRow], wiersze[numberOfRow+1], wiersze[numberOfRow+2], wiersze[numberOfRow+3]];
+        correctAnswer = answers[0]
         document.querySelector('.app__question').textContent = selectedQuestion;
 
         orderAnswersRandomly();
@@ -99,9 +101,33 @@ button.addEventListener("click", displayQuestion);
 
 //BELOW FUNCTION IS USED FOR TESTING ONLY
 
-function callBasicFunctionForTesting() {
+/* function callBasicFunctionForTesting() {
     for (let i=0; i<=100;i++) {
         displayQuestion()
     } 
 }
-callBasicFunctionForTesting();
+callBasicFunctionForTesting(); */
+
+
+
+let appAnswers = document.querySelectorAll(".app__answer");
+console.log(appAnswers[0])
+console.log(appAnswers)
+let selectedAnswer = document.querySelectorAll(".app__answer--1");
+console.log(selectedAnswer)
+
+
+for (let appAnswer of appAnswers) {
+    // Dodaj nasłuchiwanie zdarzenia kliknięcia
+    appAnswer.addEventListener("click", function() {
+        // Dodaj klasę do wybranego elementu    
+        console.log(appAnswer.textContent, correctAnswer)
+        if(appAnswer.textContent === correctAnswer) {
+            console.log('correct answer')
+        } else {
+            console.log('wrong')
+        }
+        
+
+    });
+}
