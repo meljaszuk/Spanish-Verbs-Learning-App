@@ -1,15 +1,67 @@
 'use strict'
-const NUMBER_OF_QUESTIONS = 1000;  //has to agree with sorce.txt file
+let NUMBER_OF_QUESTIONS;
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
+let url;
+
 const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-2', sourceFile: 'sources/source-2.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-3', sourceFile: 'sources/source-3.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-4', sourceFile: 'sources/source-4.txt', numberOfQuestions: 1000},
-                {scopeName: 'sample', sourceFile: 'sources/source-sample.txt', numberOfQuestions: 20}];
+                {scopeName: 'scope-5', sourceFile: 'sources/source-5.txt', numberOfQuestions: 1000}];
+
 const sounds = [{soundName: 'correct', sourceFile: 'sounds/correct.txt'},
                 {soundName: 'wrong', sourceFile: 'sounds/wrong.txt'},
                 {soundName: 'hover', sourceFile: 'sounds/hover.txt'}];
+
+
+let appScopes = document.querySelectorAll(".app__scopes");
+for (let appScope of appScopes) {
+    // Dodaj nasłuchiwanie zdarzenia kliknięcia
+    appScope.addEventListener("click", function() {
+    
+        switch (true) {
+            case (appScope.classList.contains('app__scope--1')):
+                console.log('selected scope 1');
+                url = scopes[0].sourceFile;
+                console.log('url 1',url)
+                NUMBER_OF_QUESTIONS = scopes[0].numberOfQuestions;
+                break;
+            case (appScope.classList.contains('app__scope--2')):
+                console.log('selected scope 2');
+                url = scopes[1].sourceFile;
+                console.log('url 2',url)
+                NUMBER_OF_QUESTIONS = scopes[1].numberOfQuestions;
+                break;
+            case (appScope.classList.contains('app__scope--3')):
+                console.log('selected scope 3');
+                url = scopes[2].sourceFile;
+                console.log('url 3',url)
+                NUMBER_OF_QUESTIONS = scopes[2].numberOfQuestions;
+                break;
+            case (appScope.classList.contains('app__scope--4')):
+                console.log('selected scope 4');
+                url = scopes[3].sourceFile;
+                console.log('url 4',url)
+                NUMBER_OF_QUESTIONS = scopes[3].numberOfQuestions;
+                break;
+            case (appScope.classList.contains('app__scope--5')):
+                console.log('selected scope 5');
+                url = scopes[4].sourceFile;
+                console.log('url 5',url)
+                NUMBER_OF_QUESTIONS = scopes[4].numberOfQuestions;
+                break;
+            default:
+                break;
+        }  
+
+    });
+}
+
+
+
+
+
 let numberOfRow;
 let selectedQuestion ='';
 let answers = [];
@@ -35,7 +87,7 @@ function displayQuestion() {
 console.log('row with question',numberOfRow)
     
 
-let url = 'source.txt';
+
   
     fetch(url)
     .then(response => {
@@ -119,7 +171,7 @@ callBasicFunctionForTesting(); */
 
 
 let appAnswers = document.querySelectorAll(".app__answer");
-let selectedAnswer = document.querySelectorAll(".app__answer--1");
+/* let selectedAnswer = document.querySelectorAll(".app__answer--1"); */
 
 
 
@@ -137,3 +189,4 @@ for (let appAnswer of appAnswers) {
 
     });
 }
+
