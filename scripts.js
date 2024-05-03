@@ -2,10 +2,14 @@
 const NUMBER_OF_QUESTIONS = 1000;  //has to agree with sorce.txt file
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
-const scopes = [{scopeName: 'Scope-1', sourceFile: 'source-1.txt', numberOfQuestions: 1000},
-                {scopeName: 'Scope-2', sourceFile: 'source-2.txt', numberOfQuestions: 1000},
-                {scopeName: 'Scope-3', sourceFile: 'source-3.txt', numberOfQuestions: 1000},
-                {scopeName: 'Scope-4', sourceFile: 'source-4.txt', numberOfQuestions: 1000}];
+const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000},
+                {scopeName: 'scope-2', sourceFile: 'sources/source-2.txt', numberOfQuestions: 1000},
+                {scopeName: 'scope-3', sourceFile: 'sources/source-3.txt', numberOfQuestions: 1000},
+                {scopeName: 'scope-4', sourceFile: 'sources/source-4.txt', numberOfQuestions: 1000},
+                {scopeName: 'sample', sourceFile: 'sources/source-sample.txt', numberOfQuestions: 20}];
+const sounds = [{soundName: 'correct', sourceFile: 'sounds/correct.txt'},
+                {soundName: 'wrong', sourceFile: 'sounds/wrong.txt'},
+                {soundName: 'hover', sourceFile: 'sounds/hover.txt'}];
 let numberOfRow;
 let selectedQuestion ='';
 let answers = [];
@@ -125,9 +129,9 @@ for (let appAnswer of appAnswers) {
         // Dodaj klasę do wybranego elementu    
        
         if(appAnswer.textContent === correctAnswer) {
-            console.log('[SHOULD BE CORRECT]',appAnswer.textContent)
+            console.log('[SHOULD DISPLAY CORRECT]--->',appAnswer.textContent)
         } else {
-            console.log('[SHOULD BE WRONG]',appAnswer.textContent)
+            console.log('[SHOULD DISPLAY WRONG] --->',appAnswer.textContent)
         }
         
 
