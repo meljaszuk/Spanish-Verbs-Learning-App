@@ -1,0 +1,14 @@
+.app__text {
+    color: red;
+    padding: 5px;
+}
+
+.app__question {
+    font-style: italic;
+    padding: 5px;
+    color: blue;
+}
+
+.app__scopes, .app__modes, .app__answers {
+    cursor: pointer;
+}

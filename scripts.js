@@ -170,7 +170,7 @@ callBasicFunctionForTesting(); */
 
 
 
-let appAnswers = document.querySelectorAll(".app__answer");
+let appAnswers = document.querySelectorAll(".app__answers");
 /* let selectedAnswer = document.querySelectorAll(".app__answer--1"); */
 
 
