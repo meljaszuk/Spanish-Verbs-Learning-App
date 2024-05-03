@@ -1,8 +1,8 @@
 'use strict'
-let NUMBER_OF_QUESTIONS;
+
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
-let url;
+
 
 const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-2', sourceFile: 'sources/source-2.txt', numberOfQuestions: 1000},
@@ -14,6 +14,9 @@ const sounds = [{soundName: 'correct', sourceFile: 'sounds/correct.txt'},
                 {soundName: 'wrong', sourceFile: 'sounds/wrong.txt'},
                 {soundName: 'hover', sourceFile: 'sounds/hover.txt'}];
 
+
+let url=scopes[4].sourceFile; //default value to avoid error dueto lack of source file
+let NUMBER_OF_QUESTIONS= scopes[4].numberOfQuestions; //default value to avoid error dueto lack of source file
 
 let appScopes = document.querySelectorAll(".app__scopes");
 for (let appScope of appScopes) {
