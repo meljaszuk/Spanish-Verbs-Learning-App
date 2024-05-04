@@ -12,3 +12,7 @@
 .app__scopes, .app__modes, .app__answers {
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}

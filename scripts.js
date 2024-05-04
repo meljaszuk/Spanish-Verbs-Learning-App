@@ -1,5 +1,6 @@
 'use strict'
-
+let counterAllTestQuestions= 0;
+let counterCorrectTestQuestions =0;
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
 
@@ -15,8 +16,8 @@ const sounds = [{soundName: 'correct', sourceFile: 'sounds/correct.txt'},
                 {soundName: 'hover', sourceFile: 'sounds/hover.txt'}];
 
 
-let url=scopes[4].sourceFile; //default value to avoid error dueto lack of source file
-let NUMBER_OF_QUESTIONS= scopes[4].numberOfQuestions; //default value to avoid error dueto lack of source file
+let url=scopes[0].sourceFile; //default value to avoid error dueto lack of source file
+let NUMBER_OF_QUESTIONS= scopes[0].numberOfQuestions; //default value to avoid error dueto lack of source file
 
 let appScopes = document.querySelectorAll(".app__scopes");
 for (let appScope of appScopes) {
@@ -79,15 +80,26 @@ function getNumberOfRowOfQuestion() {
 
     /* console.log('mulitplier', multiplier)
     console.log('number of row of question', numberOfRow) */
-
+    console.log('row with question',numberOfRow)
+    return numberOfRow;
 }
 
 
 
 function displayQuestion() {
 
+    if(isLearn === false) {
+        counterAllTestQuestions++;
+        document.querySelector('.app__score').textContent= counterCorrectTestQuestions + ' / ' + counterAllTestQuestions;
+        if (counterAllTestQuestions === 2) {
+            document.getElementById('generateQuestionButton').classList.add('hidden');
+           /*  BLOCK ALSO OPTION OF CLICKING AGAIN TO AIU BUG 8 20/2*/
+           //BELOW GENRATOR DOESNT WORK//
+            document.querySelector('.app__test-summary').textContent = `You've scored ` + Math.round(counterCorrectTestQuestions/counterAllTestQuestions) *100 + ' %.'
+        }
+    }
     getNumberOfRowOfQuestion();
-console.log('row with question',numberOfRow)
+
     
 
 
@@ -175,9 +187,6 @@ callBasicFunctionForTesting(); */
 
 let appAnswers = document.querySelectorAll(".app__answers");
 /* let selectedAnswer = document.querySelectorAll(".app__answer--1"); */
-
-
-
 for (let appAnswer of appAnswers) {
     // Dodaj nasłuchiwanie zdarzenia kliknięcia
     appAnswer.addEventListener("click", function() {
@@ -185,11 +194,50 @@ for (let appAnswer of appAnswers) {
        
         if(appAnswer.textContent === correctAnswer) {
             console.log('[SHOULD DISPLAY CORRECT]--->',appAnswer.textContent)
+            if(isLearn === false) {
+                counterCorrectTestQuestions++;
+                document.querySelector('.app__score').textContent= counterCorrectTestQuestions + ' / ' + counterAllTestQuestions;
+            }
         } else {
             console.log('[SHOULD DISPLAY WRONG] --->',appAnswer.textContent)
+        }
+            });
+}
+
+
+let modes = document.querySelectorAll('.app__modes');
+let isLearn;
+for (let mode of modes) {
+    // Dodaj nasłuchiwanie zdarzenia kliknięcia
+    mode.addEventListener("click", function() {
+        // Dodaj klasę do wybranego elementu    
+        cleanContent();
+        if(mode.classList.contains('app__mode--test')) {
+            console.log('selected TEST MODE')
+            isLearn = false;
+            
+            counterCorrectTestQuestions =0;
+            counterAllTestQuestions=0;
+            document.querySelector('.app__score').textContent= counterCorrectTestQuestions + ' / ' + counterAllTestQuestions;
+        } else {
+            console.log('selected LEARN MODE')
+            isLearn = true;
+            
+            document.querySelector('.app__score').textContent=''
         }
         
 
     });
 }
 
+
+//IMPROVE THIS FUCNTION -INCLUDE COPY AND PASTE
+function cleanContent() {
+    document.querySelector('.app__answer--1').textContent='';
+    document.querySelector('.app__answer--2').textContent='';
+    document.querySelector('.app__answer--3').textContent='';
+    document.querySelector('.app__answer--4').textContent='';
+    document.querySelector('.app__question').textContent='';
+    document.getElementById('generateQuestionButton').classList.remove('hidden');
+
+}
