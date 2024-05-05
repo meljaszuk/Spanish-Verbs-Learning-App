@@ -94,8 +94,8 @@ function displayQuestion() {
             document.querySelector('.app__test-summary').textContent = `You've scored ` + (counterCorrectTestQuestions/(counterAllTestQuestions-1)) *100 + ' %.'
             cleanContent();
             document.getElementById('generateQuestionButton').classList.add('hidden');
-            document.getElementById('tryAgain').classList.remove('hidden');
-            document.getElementById('tryAgain').addEventListener('click', takeTest())
+            
+          
          
         }
     }
@@ -161,10 +161,11 @@ function orderAnswersRandomly() {
 
 
 // Pobranie referencji do przycisku
-let button = document.getElementById("generateQuestionButton");
-
+let button1 = document.getElementById("generateQuestionButton");
+let button2 = document.getElementById("tryAgain");
 // Dodanie obsługi zdarzenia kliknięcia do przycisku
-button.addEventListener("click", displayQuestion);
+button1.addEventListener("click", displayQuestion);
+button2.addEventListener('click', takeTestAgain);
 
 //BELOW FUNCTION IS USED FOR TESTING ONLY
 
@@ -208,16 +209,13 @@ for (let mode of modes) {
         if(mode.classList.contains('app__mode--test')) {
             console.log('selected TEST MODE')
             isLearn = false;
-            
-            let counterCorrectTestQuestions =0;
-            let counterAllTestQuestions=0;
-            console.log('counters reset', counterCorrectTestQuestions, counterAllTestQuestions)
-            document.querySelector('.app__score').textContent= counterCorrectTestQuestions + ' / ' + counterAllTestQuestions;
+            document.getElementById('tryAgain').classList.remove('hidden');
+            resetCounters();
             
         } else {
             console.log('selected LEARN MODE')
             isLearn = true;
-            
+            document.getElementById('tryAgain').classList.add('hidden');
             document.querySelector('.app__score').textContent=''
         }
         
@@ -236,6 +234,18 @@ function cleanContent() {
    
 }
 
-function takeTest() {
-   
+function resetCounters() {
+    counterCorrectTestQuestions =0;
+    counterAllTestQuestions=0;
+    console.log('counters reset', counterCorrectTestQuestions, counterAllTestQuestions)
+    document.querySelector('.app__score').textContent= '';                
 }
+
+function takeTestAgain() {
+    console.log(`You're taking test again`);
+    resetCounters();
+        document.getElementById('generateQuestionButton').classList.remove('hidden');
+        cleanContent();
+      
+}
+
