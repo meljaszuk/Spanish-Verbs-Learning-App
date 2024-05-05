@@ -13,9 +13,17 @@ const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numbe
                 {scopeName: 'scope-4', sourceFile: 'sources/source-4.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-5', sourceFile: 'sources/source-5.txt', numberOfQuestions: 20}];
 
-const sounds = [{soundName: 'correct', sourceFile: 'sounds/correct.txt'},
-                {soundName: 'wrong', sourceFile: 'sounds/wrong.txt'},
-                {soundName: 'hover', sourceFile: 'sounds/hover.txt'}];
+/* const sounds = [{soundName: 'soundCorrect', sourceFile: 'sounds/correct.mp3'},
+                {soundName: 'soundWrong', sourceFile: 'sounds/wrong.mp3'},
+                {soundName: 'soundHover', sourceFile: 'sounds/hover.mp3'}]; */
+
+let soundCorrect = new Audio('sounds/correct.mp3');
+soundCorrect.load();
+let soundWrong =  new Audio('sounds/wrong.mp3');
+soundWrong.load();
+let soundHover = new Audio('sounds/hover.mp3')
+soundHover.load();
+
 
 let url = scopes[0].sourceFile;
 let numberOfQuestionsInSourceFile = scopes[0].numberOfQuestions;
@@ -135,13 +143,16 @@ for (let appAnswer of appAnswers) {
         
         if(appAnswer.textContent === correctAnswer) {
             console.log('[SHOULD DISPLAY CORRECT]--->',appAnswer.textContent)
-            
+            soundCorrect.play();
+
             if(isLearn === false) {
                 counterCorrectTestQuestions++;
                 displayQuestion();                        
             }
         } else {
             console.log('[SHOULD DISPLAY WRONG] --->',appAnswer.textContent);
+            soundWrong.play();
+
             if(isLearn === false) {
                 
                 displayQuestion();                        
