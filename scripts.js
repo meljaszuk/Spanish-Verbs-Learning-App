@@ -3,7 +3,8 @@ let counterAllTestQuestions= 0;
 let counterCorrectTestQuestions =0;
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
-const NUMBER_OF_TEST_QUESTIONS = 3;
+const NUMBER_OF_TEST_QUESTIONS = 10;
+
 
 const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-2', sourceFile: 'sources/source-2.txt', numberOfQuestions: 1000},
@@ -16,47 +17,67 @@ const sounds = [{soundName: 'correct', sourceFile: 'sounds/correct.txt'},
                 {soundName: 'hover', sourceFile: 'sounds/hover.txt'}];
 
 let url=scopes[0].sourceFile; //default value to avoid error dueto lack of source file
-let NUMBER_OF_QUESTIONS= scopes[0].numberOfQuestions; //default value to avoid error dueto lack of source file
+let numberOfQuestionsInSourceFile= scopes[0].numberOfQuestions; //default value to avoid error dueto lack of source file
 
 let appScopes = document.querySelectorAll(".app__scopes");
     for (let appScope of appScopes) {
         // Dodaj nasłuchiwanie zdarzenia kliknięcia
         appScope.addEventListener("click", function() {
+           
         
-            switch (true) {
+
+
+           switch (true) {
                 case (appScope.classList.contains('app__scope--1')):
-                    console.log('selected scope 1');
+                    getReferences(1);
+                    /* identifier=1; */
+                  /*   console.log('selected scope 1');
                     url = scopes[0].sourceFile;
                     console.log('url 1',url)
-                    NUMBER_OF_QUESTIONS = scopes[0].numberOfQuestions;
+                    numberOfQuestionsInSourceFile = scopes[0].numberOfQuestions; */
                     break;
                 case (appScope.classList.contains('app__scope--2')):
-                    console.log('selected scope 2');
+                    getReferences(2);
+                    /* identifier=2; */
+                    /* console.log('selected scope 2');
                     url = scopes[1].sourceFile;
                     console.log('url 2',url)
-                    NUMBER_OF_QUESTIONS = scopes[1].numberOfQuestions;
+                    numberOfQuestionsInSourceFile = scopes[1].numberOfQuestions; */
                     break;
                 case (appScope.classList.contains('app__scope--3')):
-                    console.log('selected scope 3');
+                    getReferences(3);
+                    /* identifier=3 */;
+                  /*   console.log('selected scope 3');
                     url = scopes[2].sourceFile;
                     console.log('url 3',url)
-                    NUMBER_OF_QUESTIONS = scopes[2].numberOfQuestions;
+                    numberOfQuestionsInSourceFile = scopes[2].numberOfQuestions; */
                     break;
                 case (appScope.classList.contains('app__scope--4')):
-                    console.log('selected scope 4');
+                    getReferences(4);
+                    /* identifier=4; */
+                  /*   console.log('selected scope 4');
                     url = scopes[3].sourceFile;
                     console.log('url 4',url)
-                    NUMBER_OF_QUESTIONS = scopes[3].numberOfQuestions;
+                    numberOfQuestionsInSourceFile = scopes[3].numberOfQuestions; */
                     break;
                 case (appScope.classList.contains('app__scope--5')):
-                    console.log('selected scope 5');
+                    getReferences(5);
+                    /* identifier=5; */
+                /*     console.log('selected scope 5');
                     url = scopes[4].sourceFile;
                     console.log('url 5',url)
-                    NUMBER_OF_QUESTIONS = scopes[4].numberOfQuestions;
+                    numberOfQuestionsInSourceFile = scopes[4].numberOfQuestions; */
                     break;
                 default:
                     break;
-            }  
+            }   
+
+            function getReferences(identifier) {
+                console.log('selcted scope: ',identifier);
+                url = scopes[identifier-1].sourceFile;
+                console.log('url: ', url);
+                numberOfQuestionsInSourceFile = scopes[identifier-1].numberOfQuestions;
+            }
 
         });
     }
@@ -70,7 +91,7 @@ let rowInSourceFile;
 // Pobranie zawartości pliku tekstowego */
 
 function getNumberOfRowOfQuestion() {
-    let multiplier = 1+ Math.floor(Math.random() * (NUMBER_OF_QUESTIONS-1));
+    let multiplier = 1+ Math.floor(Math.random() * (numberOfQuestionsInSourceFile-1));
     numberOfRow = 1+ (ANSWERS_PER_QUESTION + 1) * multiplier;
 
     /* console.log('mulitplier', multiplier)
@@ -155,6 +176,7 @@ function orderAnswersRandomly() {
         /* freeSpots.splice(assignedSpotIndex,1); */
 
     }
+    
 
 }
 
@@ -192,7 +214,7 @@ for (let appAnswer of appAnswers) {
             
         }
     } else {
-        console.log('[SHOULD DISPLAY WRONG] --->',appAnswer.textContent)
+        console.log('[SHOULD DISPLAY WRONG] --->',appAnswer.textContent);
     }
     });
 }
