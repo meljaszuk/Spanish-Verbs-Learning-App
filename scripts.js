@@ -1,9 +1,10 @@
 'use strict'
 let counterAllTestQuestions= 0;
 let counterCorrectTestQuestions =0;
+let isLearn = true;
 const ANSWERS_PER_QUESTION = 4 //has to agree with sorce.txt file
 const FREE_SPOTS = [1, 2, 3, 4]; // spots for questions - must agree with above constants
-const NUMBER_OF_TEST_QUESTIONS = 10;
+const NUMBER_OF_TEST_QUESTIONS = 5;
 
 
 const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000},
@@ -104,7 +105,13 @@ function getNumberOfRowOfQuestion() {
 
 
 function displayQuestion() {
-    document.getElementById('generateQuestionButton').textContent='Next';   
+
+    if (isLearn === true) {
+        document.getElementById('generateQuestionButton').textContent='Next';
+    } else {
+        document.getElementById('generateQuestionButton').classList.add('hidden');
+        document.getElementById('tryAgain').classList.remove('hidden');
+    }
     if(isLearn === false) {
         counterAllTestQuestions++;
         document.querySelector('.app__score').textContent= counterCorrectTestQuestions + ' / ' + (counterAllTestQuestions-1);
@@ -210,18 +217,21 @@ for (let appAnswer of appAnswers) {
         console.log('[SHOULD DISPLAY CORRECT]--->',appAnswer.textContent)
         if(isLearn === false) {
             counterCorrectTestQuestions++;
-            
-            
+            displayQuestion();                        
         }
     } else {
         console.log('[SHOULD DISPLAY WRONG] --->',appAnswer.textContent);
+        if(isLearn === false) {
+            
+            displayQuestion();                        
+        }
     }
     });
 }
 
 
 let modes = document.querySelectorAll('.app__modes');
-let isLearn;
+
 
 for (let mode of modes) {
     // Dodaj nasłuchiwanie zdarzenia kliknięcia
@@ -231,7 +241,7 @@ for (let mode of modes) {
         if(mode.classList.contains('app__mode--test')) {
             console.log('selected TEST MODE')
             isLearn = false;
-            document.getElementById('tryAgain').classList.remove('hidden');
+
             resetCounters();
             
         } else {
@@ -264,7 +274,9 @@ function resetCounters() {
     console.log('counters reset', counterCorrectTestQuestions, counterAllTestQuestions)
     document.querySelector('.app__score').textContent= '';
     document.querySelector('.app__test-summary').textContent='';
-    document.getElementById('generateQuestionButton').textContent='Start';              
+    document.getElementById('generateQuestionButton').textContent='Start';
+    document.getElementById('tryAgain').classList.add('hidden');
+             
 }
 
 function takeTestAgain() {
