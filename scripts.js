@@ -65,7 +65,7 @@ let numberOfRow;
 let selectedQuestion ='';
 let answers = [];
 let correctAnswer;
-let wiersze;
+let rowInSourceFile;
 
 // Pobranie zawartości pliku tekstowego */
 
@@ -83,7 +83,7 @@ function getNumberOfRowOfQuestion() {
 
 
 function displayQuestion() {
-
+    document.getElementById('generateQuestionButton').textContent='Next';   
     if(isLearn === false) {
         counterAllTestQuestions++;
         document.querySelector('.app__score').textContent= counterCorrectTestQuestions + ' / ' + (counterAllTestQuestions-1);
@@ -91,7 +91,7 @@ function displayQuestion() {
             
            /*  BLOCK ALSO OPTION OF CLICKING AGAIN TO AIU BUG 8 20/2*/
            //BELOW GENRATOR DOESNT WORK//
-            document.querySelector('.app__test-summary').textContent = `You've scored ` + (counterCorrectTestQuestions/(counterAllTestQuestions-1)) *100 + ' %.'
+            document.querySelector('.app__test-summary').textContent = `You've scored ` + Math.round((counterCorrectTestQuestions/(counterAllTestQuestions-1)) *100) + ' %.'
             cleanContent();
             document.getElementById('generateQuestionButton').classList.add('hidden');
             
@@ -114,15 +114,15 @@ function displayQuestion() {
             return response.text();
         })
         .then(data => {
-            // Podział zawartości pliku na osobne wiersze
-            wiersze = data.split('\n');
-            selectedQuestion = wiersze[numberOfRow-1];
+            // Podział zawartości pliku na osobne rowInSourceFile
+            rowInSourceFile = data.split('\n');
+            selectedQuestion = rowInSourceFile[numberOfRow-1];
 
-    /* console.log('wiersze',wiersze) */
+    /* console.log('rowInSourceFile',rowInSourceFile) */
 
-            /* console.log(wiersze[numberOfRow-1], 'quest') */
+            /* console.log(rowInSourceFile[numberOfRow-1], 'quest') */
 
-            answers = [wiersze[numberOfRow], wiersze[numberOfRow+1], wiersze[numberOfRow+2], wiersze[numberOfRow+3]];
+            answers = [rowInSourceFile[numberOfRow], rowInSourceFile[numberOfRow+1], rowInSourceFile[numberOfRow+2], rowInSourceFile[numberOfRow+3]];
             correctAnswer = answers[0]
             document.querySelector('.app__question').textContent = selectedQuestion;
 
@@ -217,6 +217,7 @@ for (let mode of modes) {
             isLearn = true;
             document.getElementById('tryAgain').classList.add('hidden');
             document.querySelector('.app__score').textContent=''
+            document.getElementById('generateQuestionButton').textContent='Start'; 
         }
         
 
@@ -240,7 +241,8 @@ function resetCounters() {
     counterAllTestQuestions=0;
     console.log('counters reset', counterCorrectTestQuestions, counterAllTestQuestions)
     document.querySelector('.app__score').textContent= '';
-    document.querySelector('.app__test-summary').textContent='';              
+    document.querySelector('.app__test-summary').textContent='';
+    document.getElementById('generateQuestionButton').textContent='Start';              
 }
 
 function takeTestAgain() {
