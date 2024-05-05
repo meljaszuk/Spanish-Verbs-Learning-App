@@ -1,11 +1,11 @@
 .app__text {
     color: red;
-    padding: 5px;
+    padding: 5px 0;
 }
 
 .app__question {
     font-style: italic;
-    padding: 5px;
+    padding: 5px 0;
     color: blue;
 }
 

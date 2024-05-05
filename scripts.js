@@ -226,26 +226,28 @@ for (let mode of modes) {
 
 //IMPROVE THIS FUCNTION -INCLUDE COPY AND PASTE
 function cleanContent() {
-    document.querySelector('.app__answer--1').textContent='';
-    document.querySelector('.app__answer--2').textContent='';
-    document.querySelector('.app__answer--3').textContent='';
-    document.querySelector('.app__answer--4').textContent='';
+
     document.querySelector('.app__question').textContent='';
-   
+
+    for (let i=1; i<=FREE_SPOTS.length; i++) {
+        document.querySelector('.app__answer--'+i).textContent='';
+    }
+    
 }
 
 function resetCounters() {
     counterCorrectTestQuestions =0;
     counterAllTestQuestions=0;
     console.log('counters reset', counterCorrectTestQuestions, counterAllTestQuestions)
-    document.querySelector('.app__score').textContent= '';                
+    document.querySelector('.app__score').textContent= '';
+    document.querySelector('.app__test-summary').textContent='';              
 }
 
 function takeTestAgain() {
     console.log(`You're taking test again`);
     resetCounters();
-        document.getElementById('generateQuestionButton').classList.remove('hidden');
-        cleanContent();
+    document.getElementById('generateQuestionButton').classList.remove('hidden');
+    cleanContent();
       
 }
 
