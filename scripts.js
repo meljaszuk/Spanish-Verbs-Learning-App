@@ -64,10 +64,7 @@ function getNumberOfRowOfQuestion() {
     return numberOfRow;
 };
 
-
-
 function displayQuestion() {
-
     if (isLearn) {
         document.getElementById('generateQuestionButton').textContent='Next';
     } else {
@@ -125,7 +122,6 @@ let appAnswers = document.querySelectorAll(".app__answers");
 
 for (let appAnswer of appAnswers) {
     appAnswer.addEventListener("click", function() {
-        
         if (appAnswer.textContent === correctAnswer) {
             console.log('[SHOULD DISPLAY CORRECT]--->', appAnswer.textContent)
             soundCorrect.play();
