@@ -4,6 +4,7 @@ const scopes = [{scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numbe
                 {scopeName: 'scope-3', sourceFile: 'sources/source-3.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-4', sourceFile: 'sources/source-4.txt', numberOfQuestions: 1000},
                 {scopeName: 'scope-5', sourceFile: 'sources/source-5.txt', numberOfQuestions: 20}];
+                
 const ANSWERS_PER_QUESTION = 4;
 const FREE_SPOTS = [1, 2, 3, 4];
 const NUMBER_OF_TEST_QUESTIONS = 5;
