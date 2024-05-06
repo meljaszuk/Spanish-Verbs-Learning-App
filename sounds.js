@@ -1,6 +1,12 @@
-let soundCorrect = new Audio('sounds/correct.mp3');
+const soundCorrect = new Audio('sounds/correct.mp3');
+
 soundCorrect.load();
-let soundWrong =  new Audio('sounds/wrong.mp3');
+
+const soundWrong = new Audio('sounds/wrong.mp3');
+
 soundWrong.load();
-let soundHover = new Audio('sounds/hover.mp3')
+
+const soundHover = new Audio('sounds/hover.mp3');
+
 soundHover.load();
+console.log('sounds loaded');

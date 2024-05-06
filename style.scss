@@ -3,3 +3,41 @@
         color: blue;
     }
 }
+
+.app__text {
+  color: red;
+  padding: 5px 0;
+}
+
+.app__question {
+  font-style: italic;
+  padding: 5px 0;
+  color: blue;
+}
+
+.app__scopes, .app__modes, .app__answers, .fake {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.fake {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+
+  &__incorrect {
+    background-color: rgb(235, 154, 148);
+  }
+
+  &__correct {
+    background-color: rgb(159, 212, 159);
+  }
+
+}
