@@ -46,7 +46,6 @@ for (let appScope of appScopes) {
             console.log('url: ', url);
             numberOfQuestionsInSourceFile = scopes[identifier - 1].numberOfQuestions;
         };
-
     });
 };
 
@@ -89,7 +88,7 @@ function displayQuestion() {
         .then(response => {
             if (!response.ok) {
                 console.log('error')
-                throw new Error('Nie można pobrać zawartości pliku.');
+                throw new Error(`File can't be loaded.`);
             }
             return response.text();
         })
@@ -103,11 +102,9 @@ function displayQuestion() {
             orderAnswersRandomly();        
         })
         .catch(error => {
-            console.error('Wystąpił błąd:', error);
+            console.error('Error occurred:', error);
         });
-
     };
- 
 };
 
 function orderAnswersRandomly() {
@@ -159,8 +156,7 @@ for (let mode of modes) {
             document.getElementById('tryAgain').classList.add('hidden');
             document.querySelector('.app__score').textContent = ''
             document.getElementById('generateQuestionButton').textContent = 'Start'; 
-        };       
-
+        };
     });
 };
 
@@ -170,7 +166,6 @@ function cleanContent() {
     for (let i = 1; i <= FREE_SPOTS.length; i++) {
         document.querySelector('.app__answer--' + i).textContent = '';
     };
-    
 };
 
 function resetCounters() {
