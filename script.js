@@ -48,7 +48,7 @@ for (let appScope of appScopes) {
             numberOfQuestionsInSourceFile = scopes[identifier - 1].numberOfQuestions;
         };
     });
-};
+}; 
 
 let numberOfRow;
 let selectedQuestion ='';
