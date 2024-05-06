@@ -21,6 +21,7 @@ document.getElementById('generateQuestionButton').addEventListener('click', disp
 document.getElementById('tryAgain').addEventListener('click', takeTestAgain);
 
 document.querySelectorAll('.app__answers').forEach(function(element) {
+  element.classList.add('mark-neutral');
   element.addEventListener('mouseover', function() {
     soundHover.play();
   });
@@ -131,8 +132,12 @@ const appAnswers = document.querySelectorAll('.app__answers');
 
 for (const appAnswer of appAnswers) {
   appAnswer.addEventListener('click', function() {
+ 
+
     if (appAnswer.textContent === correctAnswer) {
       console.log('[SHOULD DISPLAY CORRECT]--->', appAnswer.textContent);
+      appAnswer.classList.remove('mark-neutral');
+      appAnswer.classList.add('mark-correct');
       soundCorrect.play();
 
       if (!isLearn) {
@@ -141,6 +146,8 @@ for (const appAnswer of appAnswers) {
       }
     } else {
       console.log('[SHOULD DISPLAY WRONG] --->', appAnswer.textContent);
+      appAnswer.classList.remove('mark-neutral');
+      appAnswer.classList.add('mark-incorrect');
       soundWrong.play();
 
       if (!isLearn) {

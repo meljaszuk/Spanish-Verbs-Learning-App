@@ -16,3 +16,34 @@
 .hidden {
     display: none;
 }
+
+
+.app__answers {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    cursor: pointer;
+    
+}
+
+
+
+.mark-incorrect {
+    background-color: rgb(235, 154, 148);
+}
+
+.mark-correct {
+    background-color: rgb(159, 212, 159);
+}
+
+.mark-neutral {
+    background-color: rgb(77, 69, 69);
+}
+
+.mark-neutral:hover {
+    background-color: rgb(216, 205, 205);
+}
