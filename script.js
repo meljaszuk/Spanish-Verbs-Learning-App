@@ -21,7 +21,9 @@ document.getElementById('generateQuestionButton').addEventListener('click', disp
 document.getElementById('tryAgain').addEventListener('click', takeTestAgain);
 document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
   appAnswer.addEventListener('mouseover', function() {
-    soundHover.play();
+    if (appAnswer.classList.contains('mark-neutral')) {
+      soundHover.play();
+    }
   });
 });
 
@@ -88,6 +90,10 @@ function displayQuestion() {
     if (counterAllTestQuestions > NUMBER_OF_TEST_QUESTIONS) {
       document.querySelector('.app__test-summary').textContent = `You've scored ` + Math.round((counterCorrectTestQuestions / (counterAllTestQuestions - 1)) * 100) + ' %.';
       cleanContent();
+      document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
+        appAnswer.classList.remove('mark-neutral','mark-correct','mark-incorrect');
+      });
+
      /*  resetAnswerClasses(); */
       /* document.getElementById('generateQuestionButton').classList.add('hidden');
       document.getElementById('tryAgain').classList.remove('hidden'); */
@@ -130,14 +136,14 @@ function orderAnswersRandomly() {
   };
 };
 
+
 const appAnswers = document.querySelectorAll('.app__answers');
 
 for (const appAnswer of appAnswers) {
   appAnswer.addEventListener('click', function() {
     if (appAnswer.textContent === correctAnswer) {
       console.log('[SHOULD DISPLAY CORRECT]--->', appAnswer.textContent);
-      appAnswer.classList.remove('mark-neutral');
-      appAnswer.classList.remove('mark-incorrect');
+      appAnswer.classList.remove('mark-neutral','mark-incorrect');
       appAnswer.classList.add('mark-correct');
       soundCorrect.play();
             if (!isLearn) {
@@ -146,8 +152,7 @@ for (const appAnswer of appAnswers) {
       }
     } else {
       console.log('[SHOULD DISPLAY WRONG] --->', appAnswer.textContent);
-      appAnswer.classList.remove('mark-neutral');
-      appAnswer.classList.remove('mark-correct');
+      appAnswer.classList.remove('mark-neutral','mark-correct');
       appAnswer.classList.add('mark-incorrect');
       soundWrong.play();
 
@@ -164,7 +169,8 @@ for (const mode of modes) {
   mode.addEventListener('click', function() {
     cleanContent();
     resetCounters();
-/* resetAnswerClasses(); */
+
+  /* resetAnswerClasses(); */
 
     if (mode.classList.contains('app__mode--test')) {
       console.log('selected TEST MODE');
@@ -182,6 +188,9 @@ for (const mode of modes) {
       document.getElementById("tryAgain").classList.add("hidden");
       displayQuestion();
     };
+
+    markModeClicked(isLearn);
+
   });
 };
 
@@ -224,3 +233,19 @@ function takeTestAgain() {
     appAnswer.classList.add('hidden');
   });
 } */
+
+function markModeClicked(isLearn) {
+  if (isLearn) {
+    document.getElementById('modeLearn').classList.add('mark-clicked');
+    document.getElementById('modeLearn').classList.remove('mark-unclicked');
+    document.getElementById('modeTest').classList.remove('mark-clicked');
+    document.getElementById('modeTest').classList.add('mark-unclicked');
+  } 
+
+  if(!isLearn) {
+    document.getElementById('modeLearn').classList.remove('mark-clicked');
+    document.getElementById('modeLearn').classList.add('mark-unclicked');
+    document.getElementById('modeTest').classList.add('mark-clicked');
+    document.getElementById('modeTest').classList.remove('mark-unclicked');
+  }
+}

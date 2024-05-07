@@ -20,19 +20,19 @@
     <div class="app">
       <div class="app__mode">
         <div class="app__text">Select mode:</div>
-        <div class="app__modes app__mode--learn">Learn</div>
-        <div class="app__modes app__mode--test">Take test</div>
+        <div class="app__modes app__mode--learn mark-unclicked" id="modeLearn">Learn</div>
+        <div class="app__modes app__mode--test mark-unclicked" id="modeTest">Take test</div>
         <div class="app__score"></div>
-        <div class="app__test-summary"></div>
+       
       </div>
 
       <div class="app__scopes">
         <div class="app__text">Select scope:</div>
-        <div class="app__scopes app__scope--1">Scope 1</div>
-        <div class="app__scopes app__scope--2">Scope 2</div>
-        <div class="app__scopes app__scope--3">Scope 3</div>
-        <div class="app__scopes app__scope--4">Scope 4</div>
-        <div class="app__scopes app__scope--5">Sample questions</div>
+        <div class="app__scopes app__scope--1 mark-unclicked">Scope 1</div>
+        <div class="app__scopes app__scope--2 mark-unclicked">Scope 2</div>
+        <div class="app__scopes app__scope--3 mark-unclicked">Scope 3</div>
+        <div class="app__scopes app__scope--4 mark-unclicked">Scope 4</div>
+        <div class="app__scopes app__scope--5 mark-unclicked">Sample questions</div>
       </div>
 
       <button id="tryAgain" class="hidden">Start test</button>
@@ -42,6 +42,7 @@
       <div class="app__answers app__answer--3"></div>
       <div class="app__answers app__answer--4"></div>
     </div>
+    <div class="app__test-summary"></div>
     <button id="generateQuestionButton" class="hidden">Next</button>
 
     <script src="./sounds.js"></script>

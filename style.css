@@ -26,11 +26,27 @@
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
-    cursor: pointer;
-    
+  
 }
 
+.app__scopes, .app__modes {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+  
+}
 
+.mark-clicked {
+    background-color: rgb(39, 83, 119);
+}
+
+.mark-unclicked {
+    background-color: rgb(145, 189, 224);
+}
 
 .mark-incorrect {
     background-color: rgb(235, 154, 148);
@@ -43,8 +59,10 @@
 .mark-neutral {
     background-color: rgb(77, 69, 69);
     cursor: pointer;
+    
 }
 
 .mark-neutral:hover {
     background-color: rgb(216, 205, 205);
+
 }
