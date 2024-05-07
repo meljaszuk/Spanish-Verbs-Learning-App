@@ -15,35 +15,39 @@
     >
     <title>Spanish Verbs - Learning App | JavaScript</title>
   </head>
-  <body>
+  <body class="body">
 
     <div class="app">
+      <div class="app__text">Select mode:</div>
       <div class="app__mode">
-        <div class="app__text">Select mode:</div>
         <div class="app__modes app__mode--learn mark-unclicked" id="modeLearn">Learn</div>
         <div class="app__modes app__mode--test mark-unclicked" id="modeTest">Take test</div>
-        <div class="app__score"></div>
-       
       </div>
-
+      <div class="app__text">Select scope:</div>
       <div class="app__scopes">
-        <div class="app__text">Select scope:</div>
-        <div class="app__scope app__scope--1 mark-unclicked">Scope 1</div>
+              <div class="app__scope app__scope--1 mark-unclicked">Scope 1</div>
         <div class="app__scope app__scope--2 mark-unclicked">Scope 2</div>
         <div class="app__scope app__scope--3 mark-unclicked">Scope 3</div>
         <div class="app__scope app__scope--4 mark-unclicked">Scope 4</div>
         <div class="app__scope app__scope--5 mark-unclicked">Sample questions</div>
       </div>
 
-      <button id="tryAgain" class="hidden">Start test</button>
+      
       <div class="app__question"></div>
-      <div class="app__answers app__answer--1"></div>
-      <div class="app__answers app__answer--2"></div>
-      <div class="app__answers app__answer--3"></div>
-      <div class="app__answers app__answer--4"></div>
+      <div class="app__all-answers">
+        <div class="app__answers app__answer--1"></div>
+        <div class="app__answers app__answer--2"></div>
+        <div class="app__answers app__answer--3"></div>
+        <div class="app__answers app__answer--4"></div>
+      </div>
+      <div class="app__score app__text"></div>
+      <div class="app__test-summary app__text"></div> 
     </div>
-    <div class="app__test-summary"></div>
-    <button id="generateQuestionButton" class="hidden">Next</button>
+
+    <div class="buttons">
+      <button id="tryAgain" class="buttons__button hidden">START</button>
+      <button id="generateQuestionButton" class="buttons__button hidden">NEXT</button>
+    </div>
 
     <script src="./sounds.js"></script>
     <script src="./script.js"></script>

@@ -85,7 +85,7 @@ function displayQuestion() {
   });
   
   if (isLearn) {
-    document.getElementById('generateQuestionButton').textContent = 'Next';
+    document.getElementById('generateQuestionButton').textContent = 'NEXT';
   }
 
   if (!isLearn) {
