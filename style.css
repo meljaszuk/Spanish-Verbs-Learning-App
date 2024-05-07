@@ -9,7 +9,7 @@
     color: blue;
 }
 
-.app__scopes, .app__modes, .app__answers {
+.app__scopes, .app__modes {
     cursor: pointer;
 }
 
@@ -42,6 +42,7 @@
 
 .mark-neutral {
     background-color: rgb(77, 69, 69);
+    cursor: pointer;
 }
 
 .mark-neutral:hover {

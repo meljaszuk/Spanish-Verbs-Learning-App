@@ -19,10 +19,8 @@ const appScopes = document.querySelectorAll('.app__scopes');
 
 document.getElementById('generateQuestionButton').addEventListener('click', displayQuestion);
 document.getElementById('tryAgain').addEventListener('click', takeTestAgain);
-
-document.querySelectorAll('.app__answers').forEach(function(element) {
-  element.classList.add('mark-neutral');
-  element.addEventListener('mouseover', function() {
+document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
+  appAnswer.addEventListener('mouseover', function() {
     soundHover.play();
   });
 });
@@ -74,12 +72,14 @@ function getNumberOfRowOfQuestion() {
 };
 
 function displayQuestion() {
+ /*  resetAnswerClasses(); */
+  document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
+    appAnswer.classList.add('mark-neutral');
+  });
+  
   if (isLearn) {
     document.getElementById('generateQuestionButton').textContent = 'Next';
-  } else {
-    document.getElementById('generateQuestionButton').classList.add('hidden');
-    document.getElementById('tryAgain').classList.remove('hidden');
-  };
+  }
 
   if (!isLearn) {
     counterAllTestQuestions++;
@@ -88,7 +88,9 @@ function displayQuestion() {
     if (counterAllTestQuestions > NUMBER_OF_TEST_QUESTIONS) {
       document.querySelector('.app__test-summary').textContent = `You've scored ` + Math.round((counterCorrectTestQuestions / (counterAllTestQuestions - 1)) * 100) + ' %.';
       cleanContent();
-      document.getElementById('generateQuestionButton').classList.add('hidden');
+     /*  resetAnswerClasses(); */
+      /* document.getElementById('generateQuestionButton').classList.add('hidden');
+      document.getElementById('tryAgain').classList.remove('hidden'); */
     };
   };
 
@@ -132,26 +134,25 @@ const appAnswers = document.querySelectorAll('.app__answers');
 
 for (const appAnswer of appAnswers) {
   appAnswer.addEventListener('click', function() {
- 
-
     if (appAnswer.textContent === correctAnswer) {
       console.log('[SHOULD DISPLAY CORRECT]--->', appAnswer.textContent);
       appAnswer.classList.remove('mark-neutral');
+      appAnswer.classList.remove('mark-incorrect');
       appAnswer.classList.add('mark-correct');
       soundCorrect.play();
-
-      if (!isLearn) {
+            if (!isLearn) {
         counterCorrectTestQuestions++;
-        displayQuestion();
+        setTimeout(displayQuestion,500);
       }
     } else {
       console.log('[SHOULD DISPLAY WRONG] --->', appAnswer.textContent);
       appAnswer.classList.remove('mark-neutral');
+      appAnswer.classList.remove('mark-correct');
       appAnswer.classList.add('mark-incorrect');
       soundWrong.play();
 
       if (!isLearn) {
-        displayQuestion();
+        setTimeout(displayQuestion,500);
       };
     };
   });
@@ -162,18 +163,24 @@ const modes = document.querySelectorAll('.app__modes');
 for (const mode of modes) {
   mode.addEventListener('click', function() {
     cleanContent();
+    resetCounters();
+/* resetAnswerClasses(); */
 
     if (mode.classList.contains('app__mode--test')) {
       console.log('selected TEST MODE');
       isLearn = false;
+      displayQuestion();
+      document.getElementById("tryAgain").classList.remove("hidden");
+      document.getElementById("generateQuestionButton").classList.add("hidden");
 
-      resetCounters();
     } else {
       console.log('selected LEARN MODE');
       isLearn = true;
-      document.getElementById('tryAgain').classList.add('hidden');
+      /* document.getElementById('tryAgain').classList.add('hidden'); */
       document.querySelector('.app__score').textContent = '';
-      document.getElementById('generateQuestionButton').textContent = 'Start';
+      document.getElementById("generateQuestionButton").classList.remove("hidden");
+      document.getElementById("tryAgain").classList.add("hidden");
+      displayQuestion();
     };
   });
 };
@@ -184,6 +191,10 @@ function cleanContent() {
   for (let i = 1; i <= FREE_SPOTS.length; i++) {
     document.querySelector('.app__answer--' + i).textContent = '';
   };
+/*   document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
+    appAnswer.classList.add('hidden');
+    
+  }); */
 };
 
 function resetCounters() {
@@ -192,13 +203,24 @@ function resetCounters() {
   console.log('Counters reset:', counterCorrectTestQuestions, counterAllTestQuestions);
   document.querySelector('.app__score').textContent = '';
   document.querySelector('.app__test-summary').textContent = '';
-  document.getElementById('generateQuestionButton').textContent = 'Start';
-  document.getElementById('tryAgain').classList.add('hidden');
+  /* document.getElementById('generateQuestionButton').textContent = 'Start'; */
+/*   document.getElementById('tryAgain').classList.add('hidden'); */
+  
 };
 
 function takeTestAgain() {
   console.log(`You're taking test again`);
   resetCounters();
-  document.getElementById('generateQuestionButton').classList.remove('hidden');
+  /* document.getElementById('generateQuestionButton').classList.remove('hidden'); */
   cleanContent();
+  displayQuestion();
 };
+
+/* function resetAnswerClasses() {
+  document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
+    appAnswer.classList.remove('mark-neutral');
+    appAnswer.classList.remove('mark-incorrect');
+    appAnswer.classList.remove('mark-correct');
+    appAnswer.classList.add('hidden');
+  });
+} */
