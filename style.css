@@ -29,7 +29,7 @@
   
 }
 
-.app__scopes, .app__modes {
+.app__scope, .app__modes {
     display: inline-block;
     border-radius: 10px;
     padding: 10px;

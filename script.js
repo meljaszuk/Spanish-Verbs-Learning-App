@@ -15,7 +15,7 @@ let counterCorrectTestQuestions = 0;
 let isLearn = true;
 let url = scopes[0].sourceFile;
 let numberOfQuestionsInSourceFile = scopes[0].numberOfQuestions;
-const appScopes = document.querySelectorAll('.app__scopes');
+const appScopes = document.querySelectorAll('.app__scope');
 
 document.getElementById('generateQuestionButton').addEventListener('click', displayQuestion);
 document.getElementById('tryAgain').addEventListener('click', takeTestAgain);
@@ -32,18 +32,23 @@ for (const appScope of appScopes) {
     switch (true) {
       case (appScope.classList.contains('app__scope--1')):
         getReferences(1);
+        markScopeClicked(1);
         break;
       case (appScope.classList.contains('app__scope--2')):
         getReferences(2);
+        markScopeClicked(2);
         break;
       case (appScope.classList.contains('app__scope--3')):
         getReferences(3);
+        markScopeClicked(3);
         break;
       case (appScope.classList.contains('app__scope--4')):
         getReferences(4);
+        markScopeClicked(4);
         break;
       case (appScope.classList.contains('app__scope--5')):
         getReferences(5);
+        markScopeClicked(5);
         break;
       default:
         break;
@@ -235,17 +240,33 @@ function takeTestAgain() {
 } */
 
 function markModeClicked(isLearn) {
-  if (isLearn) {
-    document.getElementById('modeLearn').classList.add('mark-clicked');
-    document.getElementById('modeLearn').classList.remove('mark-unclicked');
-    document.getElementById('modeTest').classList.remove('mark-clicked');
-    document.getElementById('modeTest').classList.add('mark-unclicked');
-  } 
 
-  if(!isLearn) {
-    document.getElementById('modeLearn').classList.remove('mark-clicked');
-    document.getElementById('modeLearn').classList.add('mark-unclicked');
-    document.getElementById('modeTest').classList.add('mark-clicked');
-    document.getElementById('modeTest').classList.remove('mark-unclicked');
+const modeLearn = document.getElementById('modeLearn');
+const modeTest = document.getElementById('modeTest');
+
+  if (isLearn) {
+    modeLearn.classList.add('mark-clicked');
+    modeLearn.classList.remove('mark-unclicked');
+    modeTest.classList.remove('mark-clicked');
+    modeTest.classList.add('mark-unclicked');
+  } else  if (!isLearn) {
+    modeLearn.classList.remove('mark-clicked');
+    modeLearn.classList.add('mark-unclicked');
+    modeTest.classList.add('mark-clicked');
+    modeTest.classList.remove('mark-unclicked');
   }
+}
+
+function markScopeClicked(selectedScopeNumber) {
+  const scopes = document.querySelectorAll('.app__scope');
+  
+  scopes.forEach(function(scope) {
+    if (scope.classList.contains('app__scope--' + selectedScopeNumber)) {
+      scope.classList.add('mark-clicked');
+      scope.classList.remove('mark-unclicked');
+    } else {
+      scope.classList.add('mark-unclicked');
+      scope.classList.remove('mark-clicked');
+    }
+  });
 }
