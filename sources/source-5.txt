@@ -1,100 +1,100 @@
-| SCOPE-5 | Q1
-| SCOPE-5 | ANS 1.1 CORRECT
-| SCOPE-5 | ANS 1.2 x
-| SCOPE-5 | ANS 1.3 x
-| SCOPE-5 | ANS 1.4 x
-| SCOPE-5 | Q2
-| SCOPE-5 | ANS 2.1 CORRECT
-| SCOPE-5 | ANS 2.2 x
-| SCOPE-5 | ANS 2.3 x
-| SCOPE-5 | ANS 2.4 x
-| SCOPE-5 | Q3
-| SCOPE-5 | ANS 3.1 CORRECT
-| SCOPE-5 | ANS 3.2 x
-| SCOPE-5 | ANS 3.3 x
-| SCOPE-5 | ANS 3.4 x
-| SCOPE-5 | Q4
-| SCOPE-5 | ANS 4.1 CORRECT
-| SCOPE-5 | ANS 4.2 x
-| SCOPE-5 | ANS 4.3 x
-| SCOPE-5 | ANS 4.4 x
-| SCOPE-5 | Q5
-| SCOPE-5 | ANS 5.1 CORRECT
-| SCOPE-5 | ANS 5.2 x
-| SCOPE-5 | ANS 5.3 x
-| SCOPE-5 | ANS 5.4 x
-| SCOPE-5 | Q6
-| SCOPE-5 | ANS 6.1 CORRECT
-| SCOPE-5 | ANS 6.2 x
-| SCOPE-5 | ANS 6.3 x
-| SCOPE-5 | ANS 6.4 x
-| SCOPE-5 | Q7
-| SCOPE-5 | ANS 7.1 CORRECT
-| SCOPE-5 | ANS 7.2 x
-| SCOPE-5 | ANS 7.3 x
-| SCOPE-5 | ANS 7.4 x
-| SCOPE-5 | Q8
-| SCOPE-5 | ANS 8.1 CORRECT
-| SCOPE-5 | ANS 8.2 x
-| SCOPE-5 | ANS 8.3 x
-| SCOPE-5 | ANS 8.4 x
-| SCOPE-5 | Q9
-| SCOPE-5 | ANS 9.1 CORRECT
-| SCOPE-5 | ANS 9.2 x
-| SCOPE-5 | ANS 9.3 x
-| SCOPE-5 | ANS 9.4 x
-| SCOPE-5 | Q10
-| SCOPE-5 | ANS 10.1 CORRECT
-| SCOPE-5 | ANS 10.2 x
-| SCOPE-5 | ANS 10.3 x
-| SCOPE-5 | ANS 10.4 x
-| SCOPE-5 | Q11
-| SCOPE-5 | ANS 11.1 CORRECT
-| SCOPE-5 | ANS 11.2 x
-| SCOPE-5 | ANS 11.3 x
-| SCOPE-5 | ANS 11.4 x
-| SCOPE-5 | Q12
-| SCOPE-5 | ANS 12.1 CORRECT
-| SCOPE-5 | ANS 12.2 x
-| SCOPE-5 | ANS 12.3 x
-| SCOPE-5 | ANS 12.4 x
-| SCOPE-5 | Q13
-| SCOPE-5 | ANS 13.1 CORRECT
-| SCOPE-5 | ANS 13.2 x
-| SCOPE-5 | ANS 13.3 x
-| SCOPE-5 | ANS 13.4 x
-| SCOPE-5 | Q14
-| SCOPE-5 | ANS 14.1 CORRECT
-| SCOPE-5 | ANS 14.2 x
-| SCOPE-5 | ANS 14.3 x
-| SCOPE-5 | ANS 14.4 x
-| SCOPE-5 | Q15
-| SCOPE-5 | ANS 15.1 CORRECT
-| SCOPE-5 | ANS 15.2 x
-| SCOPE-5 | ANS 15.3 x
-| SCOPE-5 | ANS 15.4 x
-| SCOPE-5 | Q16
-| SCOPE-5 | ANS 16.1 CORRECT
-| SCOPE-5 | ANS 16.2 x
-| SCOPE-5 | ANS 16.3 x
-| SCOPE-5 | ANS 16.4 x
-| SCOPE-5 | Q17
-| SCOPE-5 | ANS 17.1 CORRECT
-| SCOPE-5 | ANS 17.2 x
-| SCOPE-5 | ANS 17.3 x
-| SCOPE-5 | ANS 17.4 x
-| SCOPE-5 | Q18
-| SCOPE-5 | ANS 18.1 CORRECT
-| SCOPE-5 | ANS 18.2 x
-| SCOPE-5 | ANS 18.3 x
-| SCOPE-5 | ANS 18.4 x
-| SCOPE-5 | Q19
-| SCOPE-5 | ANS 19.1 CORRECT
-| SCOPE-5 | ANS 19.2 x
-| SCOPE-5 | ANS 19.3 x
-| SCOPE-5 | ANS 19.4 x
-| SCOPE-5 | Q20
-| SCOPE-5 | ANS 20.1 CORRECT
-| SCOPE-5 | ANS 20.2 x
-| SCOPE-5 | ANS 20.3 x
-| SCOPE-5 | ANS 20.4 x
+﻿ Yo ____ un perro muy juguetón.
+tengo
+tienes
+teniendo
+tuve
+Mañana ____ mis amigos a visitarme.
+vendrán
+vienes
+viniendo
+venimos
+Él ____ agua mineral todos los días.
+bebe
+bebes
+bebendo
+bebo
+Antes de dormir, ella ____ un poco.
+holgó
+holgaba
+holgando
+holgaré
+Nosotros ____ en el coro de la iglesia.
+cantábamos
+cantamos
+cantarás
+canto
+Él ____ con precaución en la autopista.
+conduce
+conducimos
+conduces
+conduzco
+¿Quieres ____  un café conmigo?
+tomar
+tome
+tomaremos
+tomas
+ Ellos ____ a la playa este fin de semana.
+irán
+iré
+iras
+iban
+Yo ____ las llaves en mi bolsillo.
+meto
+mato
+metimos
+metes
+Todos los días él ____ con sus amigos.
+ríe
+rio
+riendo
+reía
+Tú ____ un talento especial para la música.
+tienes
+tenías
+tenéis
+teniendo
+Ayer ____ tus primos a cenar.
+vinieron
+vino
+vendrán
+vienen
+Ella ____ un vaso de leche antes de dormir.
+bebió
+bebo
+beben
+bebía
+Cuando era joven, él ____ en un grupo de música.
+cantar - cantaba (poprawna)
+cantaré
+cante
+canto
+Nosotros ____ por la ciudad cuando comenzó a llover.
+conducíamos
+conduzco
+conduces
+conduciendo
+¿ ____ tomar prestado tu libro por un momento?
+puedo
+tome
+tomamos
+tomas
+Él va a ____ todas las compras en el maletero del coche.
+meter
+meto
+metieron
+metiendo
+Después de la broma, todos ____ a carcajadas.
+rieron
+río
+reíamos
+rió
+Los niños ____ corriendo hacia el parque.
+vienen
+vendrán
+vinieron
+viene
+Esta noche ____ vino con la cena.
+beberemos
+bebemos
+beben
+bebiste

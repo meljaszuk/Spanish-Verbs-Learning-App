@@ -1,3 +1,16 @@
+:root {
+    --primary-color: rgb(145, 189, 224);
+    --secondary-color: rgb(87, 135, 172);
+    --border-color: rgb(235, 235, 235);
+    --incorrect-color: rgb(235, 154, 148);
+    --correct-color: rgb(159, 212, 159);
+    --neutral-color: rgb(77, 69, 69);
+    --hover-color: rgb(216, 205, 205);
+    --clicked-color: rgb(39, 83, 119);
+    --white-color: #fff;
+    --black-color: #000;
+  }
+
 .body {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
@@ -9,53 +22,34 @@
     align-items: center; 
 }
 
-.app__mode, .app__all-answers, .app__scopes {
-
-    border: 1px solid rgb(235, 235, 235);
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
-    display: flex;
-flex-wrap: wrap;
-
-  
-}
-
-.buttons {
-    display: flex;
-    box-sizing: border-box;
-    padding: 10px;
-    justify-content: center;
-
-}
-
-.buttons__button {
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: rgb(145, 189, 224);
-    cursor: pointer;
-    border-radius: 10px;
-    border: 0;
-    color: white;
-}
-
-.buttons__button:hover {
-    background-color: rgb(87, 135, 172);
-    
-}
-
 .app__text {
-    color: black;
+    color: var(--black-color);
     padding: 5px 0;
-
 }
 
 .app__question {
     font-weight: 700;
     display: flex;
     padding: 5px 0;
-    color: black;
+    color: var(--black-color);
+}
+
+.app__answers {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    margin: 3px;  
+}
+
+.app__scope, .app__modes {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    justify-content: center;
+    margin: 3px;  
 }
 
 .app__scope, .app__modes {
@@ -64,60 +58,66 @@ flex-wrap: wrap;
 
 .app__scope:hover, .app__modes:hover {
     cursor: pointer;
-    background-color: rgb(87, 135, 172);
+    background-color: var(--secondary-color);
+}
+
+.app__mode, .app__all-answers, .app__scopes {
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.buttons {
+    display: flex;
+    box-sizing: border-box;
+    padding: 10px;
+    justify-content: center;
+}
+
+.buttons__button {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0;
+    color: var(--white-color);
+}
+
+.buttons__button:hover {
+    background-color: var(--secondary-color);    
 }
 
 .hidden {
     display: none;
 }
 
-
-.app__answers {
-    display: inline-block;
-    border-radius: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    justify-content: center;
-    margin: 3px;
-
-  
-}
-
-.app__scope, .app__modes {
-    display: inline-block;
-    border-radius: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    justify-content: center;
-    margin: 3px;
-
-  
-}
-
 .mark-clicked {
-    background-color: rgb(39, 83, 119);
+    background-color: var(--clicked-color);
 }
 
 .mark-unclicked {
-    background-color: rgb(145, 189, 224);
+    background-color: var(--primary-color);
 }
 
 .mark-incorrect {
-    background-color: rgb(235, 154, 148);
+    background-color: var(--incorrect-color);
 }
 
 .mark-correct {
-    background-color: rgb(159, 212, 159);
+    background-color: var(--correct-color);
 }
 
 .mark-neutral {
-    background-color: rgb(77, 69, 69);
-    cursor: pointer;
-    
+    background-color: var(--neutral-color);
+    cursor: pointer;    
 }
 
 .mark-neutral:hover {
-    background-color: rgb(216, 205, 205);
-
+    background-color: var(--hover-color);
 }
 

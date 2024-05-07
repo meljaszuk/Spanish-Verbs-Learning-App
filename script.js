@@ -13,8 +13,8 @@ const NUMBER_OF_TEST_QUESTIONS = 5;
 let counterAllTestQuestions = 0;
 let counterCorrectTestQuestions = 0;
 let isLearn = true;
-let url = scopes[0].sourceFile;
-let numberOfQuestionsInSourceFile = scopes[0].numberOfQuestions;
+let url = scopes[4].sourceFile;
+let numberOfQuestionsInSourceFile = scopes[4].numberOfQuestions;
 const appScopes = document.querySelectorAll('.app__scope');
 
 document.getElementById('generateQuestionButton').addEventListener('click', displayQuestion);
@@ -60,7 +60,8 @@ for (const appScope of appScopes) {
       console.log('url: ', url);
       numberOfQuestionsInSourceFile = scopes[identifier - 1].numberOfQuestions;
     };
-  });
+  }
+  );
 };
 
 let numberOfRow;
