@@ -176,8 +176,6 @@ for (const mode of modes) {
     cleanContent();
     resetCounters();
 
-  /* resetAnswerClasses(); */
-
     if (mode.classList.contains('app__mode--test')) {
       console.log('selected TEST MODE');
       isLearn = false;
@@ -188,7 +186,6 @@ for (const mode of modes) {
     } else {
       console.log('selected LEARN MODE');
       isLearn = true;
-      /* document.getElementById('tryAgain').classList.add('hidden'); */
       document.querySelector('.app__score').textContent = '';
       document.getElementById("generateQuestionButton").classList.remove("hidden");
       document.getElementById("tryAgain").classList.add("hidden");
@@ -206,10 +203,6 @@ function cleanContent() {
   for (let i = 1; i <= FREE_SPOTS.length; i++) {
     document.querySelector('.app__answer--' + i).textContent = '';
   };
-/*   document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
-    appAnswer.classList.add('hidden');
-    
-  }); */
 };
 
 function resetCounters() {
@@ -217,28 +210,15 @@ function resetCounters() {
   counterAllTestQuestions = 0;
   console.log('Counters reset:', counterCorrectTestQuestions, counterAllTestQuestions);
   document.querySelector('.app__score').textContent = '';
-  document.querySelector('.app__test-summary').textContent = '';
-  /* document.getElementById('generateQuestionButton').textContent = 'Start'; */
-/*   document.getElementById('tryAgain').classList.add('hidden'); */
-  
+  document.querySelector('.app__test-summary').textContent = ''; 
 };
 
 function takeTestAgain() {
   console.log(`You're taking test again`);
   resetCounters();
-  /* document.getElementById('generateQuestionButton').classList.remove('hidden'); */
   cleanContent();
   displayQuestion();
 };
-
-/* function resetAnswerClasses() {
-  document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
-    appAnswer.classList.remove('mark-neutral');
-    appAnswer.classList.remove('mark-incorrect');
-    appAnswer.classList.remove('mark-correct');
-    appAnswer.classList.add('hidden');
-  });
-} */
 
 function markModeClicked(isLearn) {
 
