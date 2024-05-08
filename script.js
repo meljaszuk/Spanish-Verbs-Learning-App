@@ -1,10 +1,12 @@
 'use strict';
 
-const scopes = [{ scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000 },
+const scopes = [
+  { scopeName: 'scope-1', sourceFile: 'sources/source-1.txt', numberOfQuestions: 1000 },
   { scopeName: 'scope-2', sourceFile: 'sources/source-2.txt', numberOfQuestions: 1000 },
   { scopeName: 'scope-3', sourceFile: 'sources/source-3.txt', numberOfQuestions: 1000 },
   { scopeName: 'scope-4', sourceFile: 'sources/source-4.txt', numberOfQuestions: 1000 },
-  { scopeName: 'scope-5', sourceFile: 'sources/source-5.txt', numberOfQuestions: 20 }];
+  { scopeName: 'scope-5', sourceFile: 'sources/source-5.txt', numberOfQuestions: 20 }
+];
 
 const ANSWERS_PER_QUESTION = 4;
 const FREE_SPOTS = [1, 2, 3, 4];
@@ -60,8 +62,7 @@ for (const appScope of appScopes) {
       console.log('url: ', url);
       numberOfQuestionsInSourceFile = scopes[identifier - 1].numberOfQuestions;
     };
-  }
-  );
+  });
 };
 
 let numberOfRow;
@@ -80,7 +81,6 @@ function getNumberOfRowOfQuestion() {
 };
 
 function displayQuestion() {
- /*  resetAnswerClasses(); */
   document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
     appAnswer.classList.add('mark-neutral');
   });
@@ -99,10 +99,6 @@ function displayQuestion() {
       document.querySelectorAll('.app__answers').forEach(function(appAnswer) {
         appAnswer.classList.remove('mark-neutral','mark-correct','mark-incorrect');
       });
-
-     /*  resetAnswerClasses(); */
-      /* document.getElementById('generateQuestionButton').classList.add('hidden');
-      document.getElementById('tryAgain').classList.remove('hidden'); */
     };
   };
 
@@ -129,7 +125,7 @@ function displayQuestion() {
       })
       .catch(error => {
         console.error('Error occurred:', error);
-      });
+    });
   };
 };
 
@@ -142,7 +138,6 @@ function orderAnswersRandomly() {
   };
 };
 
-
 const appAnswers = document.querySelectorAll('.app__answers');
 
 for (const appAnswer of appAnswers) {
@@ -152,7 +147,8 @@ for (const appAnswer of appAnswers) {
       appAnswer.classList.remove('mark-neutral','mark-incorrect');
       appAnswer.classList.add('mark-correct');
       soundCorrect.play();
-            if (!isLearn) {
+      
+      if (!isLearn) {
         counterCorrectTestQuestions++;
         setTimeout(displayQuestion,500);
       }
@@ -193,7 +189,6 @@ for (const mode of modes) {
     };
 
     markModeClicked(isLearn);
-
   });
 };
 
@@ -221,33 +216,18 @@ function takeTestAgain() {
 };
 
 function markModeClicked(isLearn) {
+  const modeLearn = document.getElementById('modeLearn');
+  const modeTest = document.getElementById('modeTest');
 
-const modeLearn = document.getElementById('modeLearn');
-const modeTest = document.getElementById('modeTest');
-
-  if (isLearn) {
-    modeLearn.classList.add('mark-clicked');
-    modeLearn.classList.remove('mark-unclicked');
-    modeTest.classList.remove('mark-clicked');
-    modeTest.classList.add('mark-unclicked');
-  } else  if (!isLearn) {
-    modeLearn.classList.remove('mark-clicked');
-    modeLearn.classList.add('mark-unclicked');
-    modeTest.classList.add('mark-clicked');
-    modeTest.classList.remove('mark-unclicked');
-  }
+  modeLearn.classList.toggle('mark-clicked', isLearn);
+  modeLearn.classList.toggle('mark-unclicked', !isLearn);
+  modeTest.classList.toggle('mark-clicked', !isLearn);
+  modeTest.classList.toggle('mark-unclicked', isLearn);
 }
 
 function markScopeClicked(selectedScopeNumber) {
-  const scopes = document.querySelectorAll('.app__scope');
-  
-  scopes.forEach(function(scope) {
-    if (scope.classList.contains('app__scope--' + selectedScopeNumber)) {
-      scope.classList.add('mark-clicked');
-      scope.classList.remove('mark-unclicked');
-    } else {
-      scope.classList.add('mark-unclicked');
-      scope.classList.remove('mark-clicked');
-    }
+  document.querySelectorAll('.app__scope').forEach(scope => {
+    scope.classList.toggle('mark-clicked', scope.classList.contains('app__scope--' + selectedScopeNumber));
+    scope.classList.toggle('mark-unclicked', !scope.classList.contains('app__scope--' + selectedScopeNumber));
   });
 }
