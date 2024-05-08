@@ -1,17 +1,18 @@
 :root {
-    --primary-color: rgb(145, 189, 224);
-    --secondary-color: rgb(87, 135, 172);
+    --primary-color: #ffe150;
+    --secondary-color: #ffd60c;
     --border-color: rgb(235, 235, 235);
     --incorrect-color: rgb(235, 154, 148);
     --correct-color: rgb(159, 212, 159);
     --neutral-color: rgb(77, 69, 69);
     --hover-color: rgb(216, 205, 205);
-    --clicked-color: rgb(39, 83, 119);
+    --clicked-color: #ff3131;
     --white-color: #fff;
     --black-color: #000;
-  }
+}
 
 .body {
+    margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
@@ -19,12 +20,34 @@
 .app {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
+}
+
+.app__banner {
+    background-image: url('images/banner.jpg');  
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 469px) {
+    .app__banner {
+        height: 180px;
+        background-size: contain;
+        background-position: left top;
+    }
+}
+
+@media screen and (min-width: 470px) {
+    .app__banner {
+        background-size: cover;
+        height: 320px;
+        background-position: left center;
+    }
 }
 
 .app__text {
     color: var(--black-color);
-    padding: 5px 0;
+    padding: 15px;
 }
 
 .app__question {
@@ -102,6 +125,7 @@
 
 .mark-unclicked {
     background-color: var(--primary-color);
+    color: var(--black-color);
 }
 
 .mark-incorrect {
@@ -120,4 +144,3 @@
 .mark-neutral:hover {
     background-color: var(--hover-color);
 }
-
