@@ -29,7 +29,7 @@ Bug 8: The percentage score was calculated incorrectly.
 Bug 9: Allowing multiple clicks during tests distorted the score calculation. I disabled this option so that answers can only be clicked once, and a new question is displayed automatically after 0.5 seconds.
 ![screen with bug](__images-for-readme/bug-9.JPG)
 Bug 10: There was a problem with adding and removing classes, resulting in incorrect coloring of correct and incorrect answers.
-![screen with bug](__images-for-readme/bug-10.JPG)
+![screen with bug](__images-for-readme/bug-10.jpg)
 ## Future Considerations:
 -	Populate source files with conjugations to enhance the learning value.
 -	Implement automatic generation of questions when changing scopes or selecting multiple scopes.
