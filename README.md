@@ -11,25 +11,25 @@ The app offers two modes: learning and testing. In the learning mode, users can 
 ## Bugs and Testing:
 During development, several bugs were encountered and resolved:
 Bug 1: The app consistently crashed on the last question from the source file. This was caused by an incorrect definition of the variable "multiplier".
-![screen with bug](__images-for-readme/bug-1.jpg)
+![screen with bug](__images-for-readme/bug-1.JPG)
 Bug 2: The answer was never updated, which was caused by an insufficient number of iterations in the 'for' loop. I used the length of a mutated array as a condition.
-![screen with bug](__images-for-readme/bug-2.jpg)
+![screen with bug](__images-for-readme/bug-2.JPG)
 Bug 3: In the code, I utilized the Math.random method to check for the possibility of displaying the same question twice in a row. I inadvertently called the displayQuestion() function a high number of times, revealing such a case in the source code with 100 questions. This may not be a problem with 1000 questions in the source file.
-![screen with bug](__images-for-readme/bug-3.jpg)
+![screen with bug](__images-for-readme/bug-3.JPG)
 Bug 4: The question was not displayed due to an incorrectly prepared input text file.
-![screen with bug](__images-for-readme/bug-4.jpg)
+![screen with bug](__images-for-readme/bug-4.JPG)
 Bug 5: Even after displaying the test result, it was still possible to click on answers, causing the counter of correct and incorrect questions to increase.
-![screen with bug](__images-for-readme/bug-5.jpg)
+![screen with bug](__images-for-readme/bug-5.JPG)
 Bug 6: The final percentage score was not reset after completing the test.
-![screen with bug](__images-for-readme/bug-6.jpg)
+![screen with bug](__images-for-readme/bug-6.JPG)
 Bug 7: After ending the test, the answer button was displayed as empty grey circles. I added relevant DOM methods to remove CSS classes.
-![screen with bug](__images-for-readme/bug-7.jpg)
+![screen with bug](__images-for-readme/bug-7.JPG)
 Bug 8: The percentage score was calculated incorrectly.
-![screen with bug](__images-for-readme/bug-8.jpg)
+![screen with bug](__images-for-readme/bug-8.JPG)
 Bug 9: Allowing multiple clicks during tests distorted the score calculation. I disabled this option so that answers can only be clicked once, and a new question is displayed automatically after 0.5 seconds.
-![screen with bug](__images-for-readme/bug-9.jpg)
+![screen with bug](__images-for-readme/bug-9.JPG)
 Bug 10: There was a problem with adding and removing classes, resulting in incorrect coloring of correct and incorrect answers.
-![screen with bug](__images-for-readme/bug-10.jpg)
+![screen with bug](__images-for-readme/bug-10.JPG)
 ## Future Considerations:
 -	Populate source files with conjugations to enhance the learning value.
 -	Implement automatic generation of questions when changing scopes or selecting multiple scopes.
